@@ -1,18 +1,21 @@
 import React from 'react'
 
-const OwnerCard = () => {
-        return (
-            <div className="card">
-                <div className="card-content">
-                    <h2>
-                        Our Owner Felix
-                    </h2>
-                    <picture>
-                        <img src={require("../owner/Owner.jpeg")} alt="joe" />
-                    </picture>
-                </div>               
-            </div>
-        )
-}
+const OwnerCard = (props) => {
+    
+    return (
+      <div className="card">
+        <div className="card-content">
+          <picture>
+            <img src={require(`${props.boss.image}`)} alt="My Dog" />
+          </picture>
+          <h3>
+            Name: <span className="card-petname">{props.boss.firstName} {props.boss.lastName}</span>
+          </h3>
+          <p>Phone: {props.boss.phone}</p>
+        </div>
+      </div>
+    );
+  };
+
 
 export default OwnerCard

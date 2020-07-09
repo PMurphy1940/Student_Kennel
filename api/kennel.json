@@ -1,0 +1,20 @@
+{
+    "animals": [
+        { "id": 1, "name": "Doodles", "breed": "Poodle"},
+        { "id": 2, "name": "Decker", "breed": "German Shepherd" },
+        { "id": 3, "name": "Esme", "breed": "Pitbull" }
+    ],
+    "employees": [
+        { "id": 1, "firstName": "Thomas", "lastName": "Decker", "breed": "unknown", "image": "./bad-employee-1.jpg"},
+        { "id": 2, "firstName": "Florida", "lastName": "Man", "breed": "unrefined", "image": "./bad-employee-2.jpg"},
+        { "id": 3, "firstName": "Jim", "lastName": "Porkins", "breed": "unknown", "image": "./bad-employee-3.jpeg"}
+    ],
+    "owners": [
+        { "id": 1, "firstName": "Felix", "lastName": "Wrecker", "phone": "615-862-8600", "image": "./Owner.jpeg"}
+    ],
+    "locations": [
+        { "id": 1, "name": "Nashville North", "address": "500 Puppy Way", "image": "./BB-Dog_House-2.jpg"},
+        { "id": 2, "name": "Nashville West", "address": "13 Nowhere rd", "image": "./bad-location2.JPG"},
+        { "id": 3, "name": "Nashville East", "address": "1 Lookout rock", "image": "./badlocation3.jpg"}
+    ]
+}
