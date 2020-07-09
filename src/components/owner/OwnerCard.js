@@ -6,12 +6,13 @@ const OwnerCard = (props) => {
       <div className="card">
         <div className="card-content">
           <picture>
-            <img src={require(`${props.boss.image}`)} alt="My Dog" />
+            <img src={require(`${props.owner.image}`)} alt="My Dog" />
           </picture>
           <h3>
-            Name: <span className="card-petname">{props.boss.firstName} {props.boss.lastName}</span>
+            Name: <span className="card-petname">{props.owner.firstName} {props.owner.lastName}</span>
           </h3>
-          <p>Phone: {props.boss.phone}</p>
+          <p>Phone: {props.owner.phone}</p>
+          <button type="button" onClick={() => props.deleteOwner(props.owner.id)}>Disloyal</button>
         </div>
       </div>
     );

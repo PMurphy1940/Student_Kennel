@@ -13,6 +13,7 @@ const AnimalCard = (props) => {
           Name: <span className="card-petname">{props.pet.name}</span>
         </h3>
         <p>Breed: {props.pet.breed}</p>
+        <button type="button" onClick={() => props.deleteAnimal(props.pet.id)}>Discharge</button>
       </div>
     </div>
   );
