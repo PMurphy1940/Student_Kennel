@@ -6,7 +6,7 @@ const OwnerCard = (props) => {
       <div className="card">
         <div className="card-content">
           <picture>
-            <img src={require(`${props.owner.image}`)} alt="My Dog" />
+            <img src={require(`./${props.owner.image}`)} alt="My Dog" />
           </picture>
           <h3>
             Name: <span className="card-petname">{props.owner.firstName} {props.owner.lastName}</span>

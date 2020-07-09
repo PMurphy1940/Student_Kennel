@@ -5,7 +5,6 @@ export default {
     return fetch(`${remoteURL}/${route}/${id}`).then(result => result.json())
   },
   getAll(route) {
-      console.log(route)
     return fetch(`${remoteURL}/${route}`).then(result => result.json())
   },
   delete(id, route) {
