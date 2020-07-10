@@ -1,20 +1,75 @@
 {
-    "animals": [
-        { "id": 1, "name": "Doodles", "breed": "Poodle", "image": "dog3.jpg"},
-        { "id": 2, "name": "Decker", "breed": "German Shepherd", "image": "dog1.jpg" },
-        { "id": 3, "name": "Esme", "breed": "Pitbull", "image": "dog2.jpg" }
-    ],
-    "employees": [
-        { "id": 1, "firstName": "Bobo", "lastName": "", "breed": "unknown", "image": "dogE1.jpeg"},
-        { "id": 2, "firstName": "Ruckus", "lastName": "", "breed": "unrefined", "image": "dogE2.jpg"},
-        { "id": 3, "firstName": "Porkins", "lastName": "", "breed": "unknown", "image": "dog-1.jpeg"}
-    ],
-    "owners": [
-        { "id": 1, "firstName": "Felix", "lastName": "Wrecker", "phone": "615-862-8600", "image": "Owner.jpeg"}
-    ],
-    "locations": [
-        { "id": 1, "name": "Nashville North", "address": "500 Puppy Way", "image": "BB-Dog_House-2.jpg"},
-        { "id": 2, "name": "Nashville West", "address": "13 Nowhere rd", "image": "bad-location2.JPG"},
-        { "id": 3, "name": "Nashville East", "address": "1 Lookout rock", "image": "badlocation3.jpg"}
-    ]
+  "animals": [
+    {
+      "id": 1,
+      "name": "Doodles",
+      "breed": "Poodle",
+      "image": "dog3.jpg"
+    },
+    {
+      "id": 2,
+      "name": "decker",
+      "breed": "German Shepherd",
+      "image": "dog1.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Esme",
+      "breed": "Pitbull",
+      "image": "dog2.jpg"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "firstName": "Bobo",
+      "lastName": "",
+      "breed": "unknown",
+      "image": "dogE1.jpeg"
+    },
+    {
+      "id": 2,
+      "firstName": "Ruckus",
+      "lastName": "",
+      "breed": "unrefined",
+      "image": "dogE2.jpg"
+    },
+    {
+      "id": 3,
+      "firstName": "Porkins",
+      "lastName": "",
+      "breed": "unknown",
+      "image": "dog-1.jpeg"
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "firstName": "Felix",
+      "lastName": "Wrecker",
+      "phone": "615-862-8600",
+      "image": "Owner.jpeg"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Nashville North",
+      "address": "500 Puppy Way",
+      "image": "BB-Dog_House-2.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Nashville West",
+      "address": "13 Nowhere rd",
+      "image": "bad-location2.JPG"
+    },
+    {
+      "id": 3,
+      "name": "Nashville East",
+      "address": "1 Lookout rock",
+      "image": "badlocation3.jpg"
+    }
+  ],
+  "images": []
 }

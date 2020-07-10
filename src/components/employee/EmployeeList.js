@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 //import the components we will need
 import EmployeeCard from './EmployeeCard';
-// import EmployeeManager from '../../modules/EmployeeManager';
 import APIManager from '../APIManager';
 
 const EmployeeList = () => {
