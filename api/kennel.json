@@ -1,13 +1,13 @@
 {
     "animals": [
-        { "id": 1, "name": "Doodles", "breed": "Poodle"},
-        { "id": 2, "name": "Decker", "breed": "German Shepherd" },
-        { "id": 3, "name": "Esme", "breed": "Pitbull" }
+        { "id": 1, "name": "Doodles", "breed": "Poodle", "image": "dog3.jpg"},
+        { "id": 2, "name": "Decker", "breed": "German Shepherd", "image": "dog1.jpg" },
+        { "id": 3, "name": "Esme", "breed": "Pitbull", "image": "dog2.jpg" }
     ],
     "employees": [
-        { "id": 1, "firstName": "Thomas", "lastName": "Decker", "breed": "unknown", "image": "bad-employee-1.jpg"},
-        { "id": 2, "firstName": "Florida", "lastName": "Man", "breed": "unrefined", "image": "bad-employee-2.jpg"},
-        { "id": 3, "firstName": "Jim", "lastName": "Porkins", "breed": "unknown", "image": "bad-employee-3.jpeg"}
+        { "id": 1, "firstName": "Bobo", "lastName": "", "breed": "unknown", "image": "dogE1.jpeg"},
+        { "id": 2, "firstName": "Ruckus", "lastName": "", "breed": "unrefined", "image": "dogE2.jpg"},
+        { "id": 3, "firstName": "Porkins", "lastName": "", "breed": "unknown", "image": "dog-1.jpeg"}
     ],
     "owners": [
         { "id": 1, "firstName": "Felix", "lastName": "Wrecker", "phone": "615-862-8600", "image": "Owner.jpeg"}
