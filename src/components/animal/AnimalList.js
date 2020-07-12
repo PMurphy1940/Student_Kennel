@@ -26,24 +26,44 @@ const AnimalList = (props) => {
     getAnimals();
   }, []);
 
+  let ownerAnimals = animals.filter(animal => {
+ 
+      return (animal.ownerId === props.ownerId) ? true:false
+  })
+
+
+    if (props.sourceCall === "NavBar") {
   // Finally we use map() to "loop over" the animals array to show a list of animal cards
-  return (
-    <>
-    <section className="section-content">
-    <button type="button"
-        className="btn"
-        onClick={() => {props.history.push("/animals/new")}}>
-        Admit Animal
-    </button>
-  </section>
-    <div className="container-cards">
-      {animals.map(animal =>
-        <AnimalCard
-          key={animal.id}
-          pet={animal}
-          deleteAnimal={deleteAnimal} />)}
-    </div>
-    </>
-  );
+    return (
+        <>
+        <section className="section-content">
+        <button type="button"
+            className="btn"
+            onClick={() => {props.history.push("/animals/new")}}>
+            Admit Animal
+        </button>
+    </section>
+        <div className="container-cards">
+        {animals.map(animal =>
+            <AnimalCard
+            key={animal.id}
+            pet={animal}
+            deleteAnimal={deleteAnimal} />)}
+        </div>
+        </>
+        );
+    }
+    else if (props.sourceCall === "details") {
+        return(
+            <div className="container-cards">
+                {ownerAnimals.map(animal =>
+                    <AnimalCard
+                    key={animal.id}
+                    pet={animal}
+                    deleteAnimal={deleteAnimal} />)}        
+            </div>   
+    )};
+
+
 };
 export default AnimalList

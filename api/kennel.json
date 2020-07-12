@@ -1,32 +1,44 @@
 {
   "animals": [
     {
-      "id": 1,
       "name": "Doodles",
       "breed": "Poodle",
       "image": "dog3.jpg",
-      "employeeId": 1
+      "ownerId": 2,
+      "employeeId": 1,
+      "id": 1
     },
     {
-      "id": 2,
       "name": "decker",
       "breed": "German Shepherd",
       "image": "dog1.jpg",
-      "employeeId": 3
+      "ownerId": 1,
+      "employeeId": 3,
+      "id": 2
     },
     {
-      "id": 3,
       "name": "Esme",
       "breed": "Pitbull",
       "image": "dog2.jpg",
-      "employeeId": 2
+      "ownerId": 1,
+      "employeeId": 2,
+      "id": 3
     },
     {
-      "name": "Jangles",
-      "breed": "German Shepherd",
-      "image": "dog2.jpg",
-      "employeeId": 2,
+      "name": "Beaker",
+      "breed": "Bernese Mountain Dog",
+      "image": "bernese-mountain-dog1.jpg",
+      "employeeId": 1,
+      "ownerId": 2,
       "id": 4
+    },
+    {
+      "name": "Bubs",
+      "breed": "Golden Retriever",
+      "image": "golden.jpeg",
+      "employeeId": 2,
+      "ownerId": 3,
+      "id": 5
     }
   ],
   "employees": [
@@ -54,11 +66,25 @@
   ],
   "owners": [
     {
-      "id": 1,
       "firstName": "Felix",
       "lastName": "Wrecker",
       "phone": "615-862-8600",
-      "image": "Owner.jpeg"
+      "image": "Owner.jpeg",
+      "id": 1
+    },
+    {
+      "firstName": "Susan",
+      "lastName": "Grey",
+      "phone": "615-862-8600",
+      "image": "bernerOwner.jpg",
+      "id": 2
+    },
+    {
+      "firstName": "Samantha",
+      "lastName": "Max",
+      "phone": "615-862-8600",
+      "image": "goldenOwner.jpeg",
+      "id": 3
     }
   ],
   "locations": [

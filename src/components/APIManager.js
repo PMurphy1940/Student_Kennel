@@ -4,6 +4,9 @@ export default {
   get(id, route, extras) {
     return fetch(`${remoteURL}/${route}/${id}${extras}`).then(result => result.json())
   },
+  getOwnerPets(route, extras) {
+    return fetch(`${remoteURL}/${route}${extras}`).then(result => result.json())
+  },
   getAll(route) {
     return fetch(`${remoteURL}/${route}`).then(result => result.json())
   },

@@ -5,19 +5,21 @@ import { firstLetterCase } from "../../modules/helpers"
 import { Link } from "react-router-dom";
 
 const AnimalDetail = props => {
-  const [animal, setAnimal] = useState({ name: "", breed: "", image: "", employeeId: "", employee: ""});
+  const [animal, setAnimal] = useState({ name: "", breed: "", image: "", employeeId: "", employee: "", ownerId: "", owner: ""});
     const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     //get(id) from AnimalManager and hang on to the data; put it into state
-    APIManager.get(props.animalId, "animals", "?_expand=employee")
+    APIManager.get(props.animalId, "animals", "?_expand=employee&_expand=owner")
       .then(animal => {
         setAnimal({
           name: animal.name,
           breed: animal.breed,
           image: animal.image,
           employeeId: animal.employeeId,
-          employee: animal.employee
+          employee: animal.employee,
+          ownerId: animal.ownerId,
+          owner: animal.owner
         });
         setIsLoading(false);
         console.log(animal)
@@ -32,9 +34,6 @@ const AnimalDetail = props => {
     );
   };
    
-//   routeToEmployeeDetail = 
-
-
   return (
     <div className="card">
       <div className="card-content">
@@ -45,14 +44,25 @@ const AnimalDetail = props => {
         }
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(animal.name)}</span></h3>
         <p>Breed: {animal.breed}</p>
-        { (animal.employeeId !== "" && animal.employee.image !== "") &&
-        <div className="caretaker__Container" >
-            <Link to={`/employees/${animal.employeeId}`}>
-                <p>Caretaker: {animal.employee.firstName}</p>
-                <img src={require(`../employee/${animal.employee.image}`)} alt={firstLetterCase(animal.employee.firstName) } className="caretakerPic"/>
-            </Link>
+        <div className="petTies">
+            { (animal.employeeId !== "" && animal.employee.image !== "") &&
+            <div className="caretaker__Container" >
+                <Link to={`/employees/${animal.employeeId}`}>
+                    <p>Caretaker: {animal.employee.firstName}</p>
+                    <img src={require(`../employee/${animal.employee.image}`)} alt={firstLetterCase(animal.employee.firstName) } className="caretakerPic"/>
+                </Link>
+            </div>
+            }
+            { (animal.ownerId !== "" && animal.owner.image !== "") &&
+            <div className="owner__Container" >
+                <Link to={`/owners/${animal.ownerId}`}>
+                    <p>Owner: {animal.owner.firstName} {animal.owner.lastName}</p>
+                    <p>Contact: {animal.owner.phone}</p>
+                    <img src={require(`../owner/${animal.owner.image}`)} alt={firstLetterCase(animal.owner.firstName) } className="caretakerPic"/>
+                </Link>
+            </div>
+            }
         </div>
-        }
         <button type="button" disabled={isLoading} onClick={handleDelete}>
           Discharge
         </button>

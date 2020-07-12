@@ -3,9 +3,10 @@ import APIManager from '../APIManager';
 import './AnimalForm.css'
 import {splitFakePath} from "../../modules/helpers"
 import EmployeeList from "../employee/EmployeeList"
+import OwnerList from "../owner/OwnerList"
 
 const AnimalForm = props => {
-  const [animal, setAnimal] = useState({ name: "", breed: "", image: "", employeeId: "" });
+  const [animal, setAnimal] = useState({ name: "", breed: "", image: "", employeeId: "", ownerId: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [file, setFile] = useState(null);
 //   const [employeeSelect, setemployeeSelect] = useState([])
@@ -17,7 +18,7 @@ const AnimalForm = props => {
   };
 // get the employee select element HTML from EmployeeList/EmployeeSelectElement
   const employeeSelect = (<EmployeeList sourceCall = {"Form"} />)
-
+  const ownerSelect = (<OwnerList sourceCall = {"Form"} />)
 
 
   /*  Local method for validation, set loadingStatus, create animal      object, invoke the AnimalManager post method, and redirect to the full animal list
@@ -38,6 +39,7 @@ const AnimalForm = props => {
           animal.image = imageURL
       }
       animal.employeeId=parseInt(animal.employeeId)
+      animal.ownerId=parseInt(animal.ownerId)
       // Create the animal and redirect user to animal list
       APIManager.post(animal, "animals")
         .then(() => props.history.push("/animals"));
@@ -80,6 +82,14 @@ const AnimalForm = props => {
                 {employeeSelect}
             </select>
             <label htmlFor="employeeId">Caretaker</label>
+            <select className="select__box"
+                onChange={handleFieldChange}
+                id="ownerId"
+                placeholder="OwnerId">
+                <option value="0">Choose an owner</option>
+                {ownerSelect}
+            </select>
+            <label htmlFor="ownerId">Owner</label>
             </div>
           <div className="alignRight">
             <button

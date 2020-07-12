@@ -10,6 +10,7 @@ import AnimalDetail from "./animal/AnimalDetail";
 import LocationDetail from "./location/LocationDetail";
 import AnimalForm from './animal/AnimalForm'
 import EmployeeDetail from "./employee/employeeDetail"
+import OwnerDetail from "./owner/ownerDetail";
 
 const ApplicationViews = () => {
   return (
@@ -25,7 +26,7 @@ const ApplicationViews = () => {
         exact
         path="/animals"
         render={props => {
-          return <AnimalList 
+          return <AnimalList sourceCall = {"NavBar"}
               {...props}
           />;
         }}
@@ -69,10 +70,16 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/owners"
         render={props => {
-          return <OwnerList />;
+          return <OwnerList sourceCall = {"NavBar"}/>;
         }}
+      />
+      <Route path="/owners/:ownerId(\d+)" render={(props) => {
+          return <OwnerDetail ownerId={parseInt(props.match.params.ownerId)}
+          {...props} />
+      }}
       />
     </React.Fragment>
   );
