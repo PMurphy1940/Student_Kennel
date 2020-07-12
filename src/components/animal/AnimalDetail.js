@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import APIManager from '../APIManager';
 import './AnimalDetail.css'
 import { firstLetterCase } from "../../modules/helpers"
+import EmployeeList from "../employee/EmployeeList"
 
 const AnimalDetail = props => {
-  const [animal, setAnimal] = useState({ name: "", breed: "", image: "", caretaker: ""});
+  const [animal, setAnimal] = useState({ name: "", breed: "", image: "", employeeId: "", employee: ""});
     const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -15,9 +16,11 @@ const AnimalDetail = props => {
           name: animal.name,
           breed: animal.breed,
           image: animal.image,
-          caretaker: animal.caretaker
+          employeeId: animal.employeeId,
+          employee: animal.employee
         });
         setIsLoading(false);
+        console.log(animal)
       });
   }, [props.animalId]);
 
@@ -28,7 +31,7 @@ const AnimalDetail = props => {
       props.history.push("/animals")
     );
   };
-
+   
   return (
     <div className="card">
       <div className="card-content">
@@ -39,7 +42,14 @@ const AnimalDetail = props => {
         }
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(animal.name)}</span></h3>
         <p>Breed: {animal.breed}</p>
-        <p>Caretaker: {animal.caretaker}</p>
+        { (animal.employeeId !== "" && animal.employee.image !== "") &&
+        <>
+        <p>Caretaker: {animal.employee.firstName}</p>
+        <picture>
+            <img src={require(`../employee/${animal.employee.image}`)} alt={firstLetterCase(animal.name)} />
+        </picture>
+        </>
+        }
         <button type="button" disabled={isLoading} onClick={handleDelete}>
           Discharge
         </button>

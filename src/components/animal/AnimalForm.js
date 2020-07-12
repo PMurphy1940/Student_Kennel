@@ -5,7 +5,7 @@ import {splitFakePath} from "../../modules/helpers"
 import EmployeeList from "../employee/EmployeeList"
 
 const AnimalForm = props => {
-  const [animal, setAnimal] = useState({ name: "", breed: "", image: "", caretaker: "" });
+  const [animal, setAnimal] = useState({ name: "", breed: "", image: "", employeeId: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [file, setFile] = useState(null);
 //   const [employeeSelect, setemployeeSelect] = useState([])
@@ -15,10 +15,8 @@ const AnimalForm = props => {
     stateToChange[event.target.id] = event.target.value;
     setAnimal(stateToChange);
   };
-
-//   employeeSelect = <EmployeeList sourceCall = {"Form"} />
-
-    const employeeSelect = (<EmployeeList sourceCall = {"Form"} />)
+// get the employee select element HTML from EmployeeList/EmployeeSelectElement
+  const employeeSelect = (<EmployeeList sourceCall = {"Form"} />)
 
 
 
@@ -34,10 +32,12 @@ const AnimalForm = props => {
       if (animal.image === "") {
           animal.image = "dog.svg"
       }
+
       else {
           let imageURL = splitFakePath(animal.image)
           animal.image = imageURL
       }
+      animal.caretaker=parseInt(animal.caretaker)
       // Create the animal and redirect user to animal list
       APIManager.post(animal, "animals")
         .then(() => props.history.push("/animals"));
@@ -74,8 +74,8 @@ const AnimalForm = props => {
             <label htmlFor="image">Image</label>             
             <select className="select__box"
                 onChange={handleFieldChange}
-                id="caretaker"
-                placeholder="Caretaker">
+                id="employeeId"
+                placeholder="EmployeeId">
                 <option value="0">Choose a caretaker</option>
                 {employeeSelect}
             </select>

@@ -4,6 +4,7 @@ import EmployeeCard from './EmployeeCard';
 import EmployeeSelect from './employeeSelectElement'
 import APIManager from '../APIManager';
 
+
 const EmployeeList = (sourceCall) => {
   // The initial state is an empty array
   const [employees, setEmployees] = useState([]);
@@ -41,8 +42,10 @@ const EmployeeList = (sourceCall) => {
                 <>
                 {employees.map(employee => <EmployeeSelect key={employee.id} employee={employee} />)}
                 </ >   
-         );
-        
+         )
+        }
+    else if (sourceCall.sourceCall === "Caretaker") {
+        return employees
     }
 
 

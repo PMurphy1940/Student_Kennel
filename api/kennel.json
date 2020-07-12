@@ -5,21 +5,21 @@
       "name": "Doodles",
       "breed": "Poodle",
       "image": "dog3.jpg",
-      "caretaker": "Porkins"
+      "employeeId": 1
     },
     {
       "id": 2,
       "name": "decker",
       "breed": "German Shepherd",
       "image": "dog1.jpg",
-      "caretaker": "Bobo"
+      "employeeId": 3
     },
     {
       "id": 3,
       "name": "Esme",
       "breed": "Pitbull",
       "image": "dog2.jpg",
-      "caretaker": "Ruckus"
+      "employeeId": 2
     }
   ],
   "employees": [
