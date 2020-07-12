@@ -4,7 +4,7 @@ import './AnimalDetail.css'
 import { firstLetterCase } from "../../modules/helpers"
 
 const AnimalDetail = props => {
-  const [animal, setAnimal] = useState({ name: "", breed: "", image: "" });
+  const [animal, setAnimal] = useState({ name: "", breed: "", image: "", caretaker: ""});
     const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -14,7 +14,8 @@ const AnimalDetail = props => {
         setAnimal({
           name: animal.name,
           breed: animal.breed,
-          image: animal.image
+          image: animal.image,
+          caretaker: animal.caretaker
         });
         setIsLoading(false);
       });
@@ -38,6 +39,7 @@ const AnimalDetail = props => {
         }
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(animal.name)}</span></h3>
         <p>Breed: {animal.breed}</p>
+        <p>Caretaker: {animal.caretaker}</p>
         <button type="button" disabled={isLoading} onClick={handleDelete}>
           Discharge
         </button>

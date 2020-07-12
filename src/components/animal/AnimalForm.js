@@ -67,17 +67,20 @@ const AnimalForm = props => {
             <label htmlFor="breed">Breed</label>
             <input
               type="file"
-              onChange={(event) => setFile(event.target.files[0])}
+              onChange={handleFieldChange}
               id="image"
               placeholder="Image"
             />
-            <label htmlFor="image">Image</label>
-          </div>
-          <label htmlFor="caretaker"></label>
-                <select className="select__box">
-                    <option value="0">Choose a caretaker</option>
-                    {employeeSelect}
-                </select>
+            <label htmlFor="image">Image</label>             
+            <select className="select__box"
+                onChange={handleFieldChange}
+                id="caretaker"
+                placeholder="Caretaker">
+                <option value="0">Choose a caretaker</option>
+                {employeeSelect}
+            </select>
+            <label htmlFor="caretaker">Caretaker</label>
+            </div>
           <div className="alignRight">
             <button
               type="button"

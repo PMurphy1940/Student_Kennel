@@ -4,19 +4,22 @@
       "id": 1,
       "name": "Doodles",
       "breed": "Poodle",
-      "image": "dog3.jpg"
+      "image": "dog3.jpg",
+      "caretaker": "Porkins"
     },
     {
       "id": 2,
       "name": "decker",
       "breed": "German Shepherd",
-      "image": "dog1.jpg"
+      "image": "dog1.jpg",
+      "caretaker": "Bobo"
     },
     {
       "id": 3,
       "name": "Esme",
       "breed": "Pitbull",
-      "image": "dog2.jpg"
+      "image": "dog2.jpg",
+      "caretaker": "Ruckus"
     }
   ],
   "employees": [
