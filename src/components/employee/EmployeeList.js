@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 //import the components we will need
 import EmployeeCard from './EmployeeCard';
+import EmployeeSelect from './employeeSelectElement'
 import APIManager from '../APIManager';
 
-const EmployeeList = () => {
+const EmployeeList = (sourceCall) => {
   // The initial state is an empty array
   const [employees, setEmployees] = useState([]);
 
@@ -25,12 +26,25 @@ const EmployeeList = () => {
       .then(() => APIManager.getAll("employees").then(setEmployees));
   };
 
+    if (sourceCall.sourceCall === "NavBar") 
+    // Finally we use map() to "loop over" the employees array to show a list of employee cards
+        { 
+            return (
+            <div className="container-cards">
+            {employees.map(employee => <EmployeeCard key={employee.id} worker={employee} deleteEmployee={deleteEmployee}/>)}
+            </div>
+            );
+        }
+    else if (sourceCall.sourceCall === "Form") {
+        
+            return(
+                <>
+                {employees.map(employee => <EmployeeSelect key={employee.id} employee={employee} />)}
+                </ >   
+         );
+        
+    }
 
-  // Finally we use map() to "loop over" the employees array to show a list of employee cards
-  return (
-    <div className="container-cards">
-      {employees.map(employee => <EmployeeCard key={employee.id} worker={employee} deleteEmployee={deleteEmployee}/>)}
-    </div>
-  );
-};
+
+}
 export default EmployeeList

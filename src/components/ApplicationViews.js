@@ -57,7 +57,7 @@ const ApplicationViews = () => {
       <Route
         path="/employees"
         render={props => {
-          return <EmployeeList />;
+          return <EmployeeList sourceCall = {"NavBar"} />;
         }}
       />
       <Route

@@ -1,31 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import APIManager from '../APIManager';
 import './AnimalForm.css'
 import {splitFakePath} from "../../modules/helpers"
+import EmployeeList from "../employee/EmployeeList"
+
 const AnimalForm = props => {
   const [animal, setAnimal] = useState({ name: "", breed: "", image: "", caretaker: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [file, setFile] = useState(null);
+//   const [employeeSelect, setemployeeSelect] = useState([])
 
   const handleFieldChange = event => {
     const stateToChange = { ...animal };
     stateToChange[event.target.id] = event.target.value;
     setAnimal(stateToChange);
   };
-//   const [employees, setEmployees] = useState([]);
 
-//   const getEmployees = () => {
-//     // After the data comes back from the API, we
-//     //  use the setEmployees function to update state
-//     return APIManager.getAll("employees").then(employeesFromAPI => {
-//       setEmployees(employeesFromAPI)
-//     });
-//   };
+//   employeeSelect = <EmployeeList sourceCall = {"Form"} />
 
-//   // got the employees from the API on the component's first render
-//   useEffect(() => {
-//     getEmployees();
-//   }, []);
+    const employeeSelect = (<EmployeeList sourceCall = {"Form"} />)
+
+
 
   /*  Local method for validation, set loadingStatus, create animal      object, invoke the AnimalManager post method, and redirect to the full animal list
   */
@@ -43,7 +38,6 @@ const AnimalForm = props => {
           let imageURL = splitFakePath(animal.image)
           animal.image = imageURL
       }
-      APIManager.uploadFile(file)
       // Create the animal and redirect user to animal list
       APIManager.post(animal, "animals")
         .then(() => props.history.push("/animals"));
@@ -79,7 +73,11 @@ const AnimalForm = props => {
             />
             <label htmlFor="image">Image</label>
           </div>
-          
+          <label htmlFor="caretaker"></label>
+                <select className="select__box">
+                    <option value="0">Choose a caretaker</option>
+                    {employeeSelect}
+                </select>
           <div className="alignRight">
             <button
               type="button"
@@ -95,19 +93,3 @@ const AnimalForm = props => {
 
 export default AnimalForm
 
-/* <option value="0">Select an Item</option>
-                        <option value="event">Event</option>
-                        <option value="friend">Friend</option>
-                        <option value="message">Message</option>
-                        <option value="news">News</option>
-                        <option value="task">Task</option> */
-
-                    //     <label htmlFor="caretaker"></label>
-                    // <select id="dropdown" className="select__box">
-                    //     <option value="0">Choose a caretaker</option>
-                    //     {/* { employees.map(employee => {
-                    //       return <option value={employee.firstName}>{employee.firstName} {employee.lastName}</option>
-                    //     })
-
-                    //     } */}
-                    // </select>
