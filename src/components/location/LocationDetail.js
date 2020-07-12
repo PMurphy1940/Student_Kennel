@@ -8,7 +8,7 @@ const LocationDetail = props => {
     const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     //get(id) from AnimalManager and hang on to the data; put it into state
-    APIManager.get(props.locationId, "locations")
+    APIManager.get(props.locationId, "locations", "")
       .then(location => {
         setLocation({
           name: location.name,

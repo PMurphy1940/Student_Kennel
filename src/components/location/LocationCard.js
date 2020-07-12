@@ -15,7 +15,7 @@ const LocationCard = (props) => {
           <p>{props.store.address}</p>
           <Link to={`/locations/${props.store.id}`}>
             <button>Details</button>
-        </Link>
+          </Link>
           <button type="button" onClick={() => props.deleteLocation(props.store.id)}>Shutter Location</button>
         </div>
       </div>

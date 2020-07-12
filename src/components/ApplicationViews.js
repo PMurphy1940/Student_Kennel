@@ -9,6 +9,7 @@ import OwnerList from "./owner/OwnerList";
 import AnimalDetail from "./animal/AnimalDetail";
 import LocationDetail from "./location/LocationDetail";
 import AnimalForm from './animal/AnimalForm'
+import EmployeeDetail from "./employee/employeeDetail"
 
 const ApplicationViews = () => {
   return (
@@ -54,7 +55,14 @@ const ApplicationViews = () => {
              {...props}
          />
         }} />
+      <Route path="/employees/:employeeId(\d+)" render={(props) => {
+        // Pass the locationId to the locationDetailComponent
+         return <EmployeeDetail employeeId={parseInt(props.match.params.employeeId)}
+             {...props}
+         />
+        }} />
       <Route
+        exact
         path="/employees"
         render={props => {
           return <EmployeeList sourceCall = {"NavBar"} />;

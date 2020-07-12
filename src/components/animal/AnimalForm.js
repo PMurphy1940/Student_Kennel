@@ -37,7 +37,7 @@ const AnimalForm = props => {
           let imageURL = splitFakePath(animal.image)
           animal.image = imageURL
       }
-      animal.caretaker=parseInt(animal.caretaker)
+      animal.employeeId=parseInt(animal.employeeId)
       // Create the animal and redirect user to animal list
       APIManager.post(animal, "animals")
         .then(() => props.history.push("/animals"));
@@ -79,7 +79,7 @@ const AnimalForm = props => {
                 <option value="0">Choose a caretaker</option>
                 {employeeSelect}
             </select>
-            <label htmlFor="caretaker">Caretaker</label>
+            <label htmlFor="employeeId">Caretaker</label>
             </div>
           <div className="alignRight">
             <button

@@ -20,6 +20,13 @@
       "breed": "Pitbull",
       "image": "dog2.jpg",
       "employeeId": 2
+    },
+    {
+      "name": "Jangles",
+      "breed": "German Shepherd",
+      "image": "dog2.jpg",
+      "employeeId": 2,
+      "id": 4
     }
   ],
   "employees": [

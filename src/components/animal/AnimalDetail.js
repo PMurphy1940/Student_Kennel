@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import APIManager from '../APIManager';
 import './AnimalDetail.css'
 import { firstLetterCase } from "../../modules/helpers"
-import EmployeeList from "../employee/EmployeeList"
+import { Link } from "react-router-dom";
 
 const AnimalDetail = props => {
   const [animal, setAnimal] = useState({ name: "", breed: "", image: "", employeeId: "", employee: ""});
@@ -10,7 +10,7 @@ const AnimalDetail = props => {
 
   useEffect(() => {
     //get(id) from AnimalManager and hang on to the data; put it into state
-    APIManager.get(props.animalId, "animals")
+    APIManager.get(props.animalId, "animals", "?_expand=employee")
       .then(animal => {
         setAnimal({
           name: animal.name,
@@ -32,6 +32,9 @@ const AnimalDetail = props => {
     );
   };
    
+//   routeToEmployeeDetail = 
+
+
   return (
     <div className="card">
       <div className="card-content">
@@ -43,12 +46,12 @@ const AnimalDetail = props => {
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(animal.name)}</span></h3>
         <p>Breed: {animal.breed}</p>
         { (animal.employeeId !== "" && animal.employee.image !== "") &&
-        <>
-        <p>Caretaker: {animal.employee.firstName}</p>
-        <picture>
-            <img src={require(`../employee/${animal.employee.image}`)} alt={firstLetterCase(animal.name)} />
-        </picture>
-        </>
+        <div className="caretaker__Container" >
+            <Link to={`/employees/${animal.employeeId}`}>
+                <p>Caretaker: {animal.employee.firstName}</p>
+                <img src={require(`../employee/${animal.employee.image}`)} alt={firstLetterCase(animal.employee.firstName) } className="caretakerPic"/>
+            </Link>
+        </div>
         }
         <button type="button" disabled={isLoading} onClick={handleDelete}>
           Discharge
