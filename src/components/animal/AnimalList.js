@@ -30,6 +30,10 @@ const AnimalList = (props) => {
  
       return (animal.ownerId === props.ownerId) ? true:false
   })
+  let employeeAnimals = animals.filter(animal => {
+ 
+      return (animal.employeeId === props.employeeId) ? true:false
+  })
 
 
     if (props.sourceCall === "NavBar") {
@@ -37,32 +41,45 @@ const AnimalList = (props) => {
     return (
         <>
         <section className="section-content">
-        <button type="button"
-            className="btn"
-            onClick={() => {props.history.push("/animals/new")}}>
-            Admit Animal
-        </button>
-    </section>
+            <button type="button"
+                className="btn"
+                onClick={() => {props.history.push("/animals/new")}}>
+                Admit Animal
+            </button>
+        </section>
         <div className="container-cards">
         {animals.map(animal =>
             <AnimalCard
             key={animal.id}
             pet={animal}
-            deleteAnimal={deleteAnimal} />)}
+            deleteAnimal={deleteAnimal}
+            {...props} />)}
         </div>
         </>
         );
     }
-    else if (props.sourceCall === "details") {
+    else if (props.sourceCall === "ownerDetail") {
         return(
             <div className="container-cards">
                 {ownerAnimals.map(animal =>
                     <AnimalCard
                     key={animal.id}
                     pet={animal}
-                    deleteAnimal={deleteAnimal} />)}        
+                    deleteAnimal={deleteAnimal}
+                    {...props} />)}        
             </div>   
-    )};
+    )}
+    else if (props.sourceCall === "employeeDetail") {
+        return(
+            <div className="container-cards">
+                {employeeAnimals.map(animal =>
+                    <AnimalCard
+                    key={animal.id}
+                    pet={animal}
+                    deleteAnimal={deleteAnimal}
+                    {...props} />)}        
+            </div>   
+    )}
 
 
 };

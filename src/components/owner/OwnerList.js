@@ -5,7 +5,7 @@ import OwnerCard from './OwnerCard';
 import APIManager from '../APIManager';
 import OwnerSelect from './OwnerSelectElement'
 
-const OwnerList = (sourceCall) => {
+const OwnerList = (props) => {
   // The initial state is an empty array
   const [owners, setOwners] = useState([]);
 
@@ -27,14 +27,23 @@ const OwnerList = (sourceCall) => {
       .then(() =>APIManager.getAll("owners").then(setOwners));
   };
 
-  if (sourceCall.sourceCall === "NavBar") {
+  if (props.sourceCall === "NavBar") {
   // Finally we use map() to "loop over" the owners array to show a list of owner cards
   return (
-    <div className="container-cards">
-      {owners.map(owner => <OwnerCard key={owner.id} owner={owner} deleteOwner={deleteOwner}/>)}
-    </div>
+      <>
+        <section className="section-content">
+            <button type="button"
+                className="btn"
+                onClick={() => {props.history.push("/owners/new")}}>
+                New Client
+            </button>
+        </section>  
+        <div className="container-cards">
+            {owners.map(owner => <OwnerCard key={owner.id} owner={owner} deleteOwner={deleteOwner}/>)}
+        </div>
+      </>
   )}
-  else if (sourceCall.sourceCall === "Form") {
+  else if (props.sourceCall === "Form") {
         
     return(
         <>

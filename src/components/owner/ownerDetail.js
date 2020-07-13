@@ -20,11 +20,10 @@ const OwnerDetail = props => {
           id: owner.id
         });
         setIsLoading(false);
-        console.log(owner)
       });
   }, [props.ownerId]);
 
-  const thisOwnersPets = <AnimalList sourceCall = "details" ownerId ={owner.id} />
+  const thisOwnersPets = <AnimalList sourceCall = "ownerDetail" ownerId ={owner.id} {...props} />
 
   const handleDelete = () => {
     //invoke the delete function in AnimalManger and re-direct to the owner list.
@@ -48,7 +47,7 @@ const OwnerDetail = props => {
          {thisOwnersPets}
         </div>
         <button type="button" disabled={isLoading} onClick={handleDelete}>
-          Discontinue Service
+          Checkout owner and discharge pets
         </button>
       </div>
     </div>

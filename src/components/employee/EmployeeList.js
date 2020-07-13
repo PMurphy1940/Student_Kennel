@@ -5,7 +5,8 @@ import EmployeeSelect from './employeeSelectElement'
 import APIManager from '../APIManager';
 
 
-const EmployeeList = (sourceCall) => {
+
+const EmployeeList = (props) => {
   // The initial state is an empty array
   const [employees, setEmployees] = useState([]);
 
@@ -27,16 +28,25 @@ const EmployeeList = (sourceCall) => {
       .then(() => APIManager.getAll("employees").then(setEmployees));
   };
 
-    if (sourceCall.sourceCall === "NavBar") 
+    if (props.sourceCall === "NavBar") 
     // Finally we use map() to "loop over" the employees array to show a list of employee cards
         { 
             return (
-            <div className="container-cards">
-            {employees.map(employee => <EmployeeCard key={employee.id} worker={employee} deleteEmployee={deleteEmployee}/>)}
-            </div>
+            <>
+                <section className="section-content">
+                    <button type="button"
+                    className="btn"
+                    onClick={() => {props.history.push("/employees/new")}}>
+                    Hire New Employee
+                </button>
+                </section>  
+                    <div className="container-cards">
+                    {employees.map(employee => <EmployeeCard key={employee.id} worker={employee} deleteEmployee={deleteEmployee}/>)}
+                </div>
+            </>
             );
         }
-    else if (sourceCall.sourceCall === "Form") {
+    else if (props.sourceCall === "Form") {
         
             return(
                 <>
@@ -44,7 +54,7 @@ const EmployeeList = (sourceCall) => {
                 </ >   
          )
         }
-    else if (sourceCall.sourceCall === "Caretaker") {
+    else if (props.sourceCall === "Caretaker") {
         return employees
     }
 

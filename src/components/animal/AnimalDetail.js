@@ -5,7 +5,7 @@ import { firstLetterCase } from "../../modules/helpers"
 import { Link } from "react-router-dom";
 
 const AnimalDetail = props => {
-  const [animal, setAnimal] = useState({ name: "", breed: "", image: "", employeeId: "", employee: "", ownerId: "", owner: ""});
+  const [animal, setAnimal] = useState( {id: "", name: "", breed: "", image: "", employeeId: "", employee: "", ownerId: "", owner: ""});
     const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -13,6 +13,7 @@ const AnimalDetail = props => {
     APIManager.get(props.animalId, "animals", "?_expand=employee&_expand=owner")
       .then(animal => {
         setAnimal({
+          id: animal.id,
           name: animal.name,
           breed: animal.breed,
           image: animal.image,
@@ -22,7 +23,6 @@ const AnimalDetail = props => {
           owner: animal.owner
         });
         setIsLoading(false);
-        console.log(animal)
       });
   }, [props.animalId]);
 
@@ -33,7 +33,7 @@ const AnimalDetail = props => {
       props.history.push("/animals")
     );
   };
-   
+
   return (
     <div className="card">
       <div className="card-content">
@@ -69,6 +69,7 @@ const AnimalDetail = props => {
       </div>
     </div>
   );
+// }
 }
 
 export default AnimalDetail;

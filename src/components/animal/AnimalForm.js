@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import APIManager from '../APIManager';
 import './AnimalForm.css'
 import {splitFakePath} from "../../modules/helpers"
@@ -8,7 +8,7 @@ import OwnerList from "../owner/OwnerList"
 const AnimalForm = props => {
   const [animal, setAnimal] = useState({ name: "", breed: "", image: "", employeeId: "", ownerId: "" });
   const [isLoading, setIsLoading] = useState(false);
-  const [file, setFile] = useState(null);
+//   const [file, setFile] = useState(null);
 //   const [employeeSelect, setemployeeSelect] = useState([])
 
   const handleFieldChange = event => {
@@ -97,6 +97,13 @@ const AnimalForm = props => {
               disabled={isLoading}
               onClick={constructNewAnimal}
             >Submit</button>
+          </div>
+          <div className="alignLeft">
+            <button
+              type="button"
+              disabled={isLoading}
+              onClick={() => {props.history.push("/animals")}}
+            >Discard</button>
           </div>
         </fieldset>
       </form>

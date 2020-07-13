@@ -1,36 +1,28 @@
 {
   "animals": [
     {
+      "id": 1,
       "name": "Doodles",
       "breed": "Poodle",
       "image": "dog3.jpg",
-      "ownerId": 2,
-      "employeeId": 1,
-      "id": 1
+      "employeeId": 4,
+      "ownerId": 2
     },
     {
+      "id": 2,
       "name": "decker",
       "breed": "German Shepherd",
       "image": "dog1.jpg",
-      "ownerId": 1,
-      "employeeId": 3,
-      "id": 2
+      "employeeId": 4,
+      "ownerId": 1
     },
     {
+      "id": 3,
       "name": "Esme",
       "breed": "Pitbull",
       "image": "dog2.jpg",
-      "ownerId": 1,
-      "employeeId": 2,
-      "id": 3
-    },
-    {
-      "name": "Beaker",
-      "breed": "Bernese Mountain Dog",
-      "image": "bernese-mountain-dog1.jpg",
       "employeeId": 1,
-      "ownerId": 2,
-      "id": 4
+      "ownerId": 1
     },
     {
       "name": "Bubs",
@@ -39,6 +31,22 @@
       "employeeId": 2,
       "ownerId": 3,
       "id": 5
+    },
+    {
+      "name": "Pickles",
+      "breed": "Bernese Mountain Dog",
+      "image": "bernese-mountain-dog1.jpg",
+      "employeeId": 3,
+      "ownerId": 2,
+      "id": 6
+    },
+    {
+      "name": "Porgy",
+      "breed": "Pug",
+      "image": "pug.jpg",
+      "employeeId": 2,
+      "ownerId": 4,
+      "id": 7
     }
   ],
   "employees": [
@@ -62,6 +70,13 @@
       "lastName": "",
       "breed": "unknown",
       "image": "dog-1.jpeg"
+    },
+    {
+      "firstName": "Nickles",
+      "lastName": "McDuff",
+      "locationId": 1,
+      "image": "dogE4.jpeg",
+      "id": 4
     }
   ],
   "owners": [
@@ -85,6 +100,13 @@
       "phone": "615-862-8600",
       "image": "goldenOwner.jpeg",
       "id": 3
+    },
+    {
+      "firstName": "Johnathan",
+      "lastName": "Smudge",
+      "phone": "615-862-8600",
+      "image": "awkward-glamour-shots.jpeg",
+      "id": 4
     }
   ],
   "locations": [
