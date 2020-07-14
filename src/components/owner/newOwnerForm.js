@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import APIManager from '../APIManager';
 import '../animal/AnimalForm.css'
 import {splitFakePath} from "../../modules/helpers"
-import EmployeeList from "../employee/EmployeeList"
 
 const OwnerForm = props => {
   const [owner, setOwner] = useState({ firstName: "", lastName: "", phone: "", image: ""});

@@ -4,7 +4,7 @@ import './LocationDetail.css'
 import { firstLetterCase } from "../../modules/helpers"
 
 const LocationDetail = props => {
-  const [location, setLocation] = useState({ name: "", address: "", image: "" });
+  const [location, setLocation] = useState({ name: "", address: "", image: "", locationId: "" });
     const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     //get(id) from AnimalManager and hang on to the data; put it into state
@@ -13,12 +13,15 @@ const LocationDetail = props => {
         setLocation({
           name: location.name,
           address: location.address,
-          image: location.image
-         
+          image: location.image,
+          locationId: location.locationId
         });
         setIsLoading(false);
+        if (location.locationId === undefined  ) {
+            props.history.push("/404")
+        }
       });
-  }, [props.locationId]);
+  }, [props]);
 
   const handleDelete = () => {
       setIsLoading(true);
@@ -28,6 +31,8 @@ const LocationDetail = props => {
 
   return (
     <div className="card">
+        {(location.id !== undefined) &&
+    <div>
       <div className="card-content">
         { (location.image !== "") ?  
         <picture>
@@ -42,6 +47,8 @@ const LocationDetail = props => {
       <button type="button" disabled={isLoading} onClick={handleDelete}>
           Shutter Location
       </button>
+      </div>
+        }
     </div>
   );
 }

@@ -23,6 +23,9 @@ const AnimalDetail = props => {
           owner: animal.owner
         });
         setIsLoading(false);
+        if (animal.id === undefined  ) {
+            props.history.push("/404")
+        }
       });
   }, [props.animalId]);
 
@@ -36,6 +39,7 @@ const AnimalDetail = props => {
 
   return (
     <div className="card">
+    { (animal.id !== undefined) &&
       <div className="card-content">
       { (animal.image !== "") && 
         <picture>
@@ -67,6 +71,7 @@ const AnimalDetail = props => {
           Discharge
         </button>
       </div>
+    }
     </div>
   );
 // }

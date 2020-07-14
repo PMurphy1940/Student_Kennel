@@ -32,7 +32,7 @@ const AnimalEditForm = props => {
       ownerId: parseInt(animal.ownerId)
     };
 
-    APIManager.update(editedAnimal)
+    APIManager.update(editedAnimal, "animals")
       .then(() => props.history.push("/animals"))
   }
 

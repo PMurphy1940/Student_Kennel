@@ -30,7 +30,7 @@
       "image": "golden.jpeg",
       "employeeId": 2,
       "ownerId": 3,
-      "id": 5
+      "id": 4
     },
     {
       "name": "Pickles",
@@ -38,7 +38,7 @@
       "image": "bernese-mountain-dog1.jpg",
       "employeeId": 3,
       "ownerId": 2,
-      "id": 6
+      "id": 5
     },
     {
       "name": "Porgy",
@@ -46,29 +46,29 @@
       "image": "pug.jpg",
       "employeeId": 2,
       "ownerId": 4,
-      "id": 7
+      "id": 6
     }
   ],
   "employees": [
     {
       "id": 1,
       "firstName": "Bobo",
-      "lastName": "",
-      "breed": "unknown",
+      "lastName": "Prince",
+      "location": 2,
       "image": "dogE1.jpeg"
     },
     {
       "id": 2,
       "firstName": "Ruckus",
       "lastName": "",
-      "breed": "unrefined",
+      "location": 3,
       "image": "dogE2.jpg"
     },
     {
       "id": 3,
       "firstName": "Porkins",
       "lastName": "",
-      "breed": "unknown",
+      "location": 2,
       "image": "dog-1.jpeg"
     },
     {

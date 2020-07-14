@@ -19,8 +19,11 @@ const EmployeeDetail = props => {
          
         });
         setIsLoading(false);
+        if (employee.id === undefined  ) {
+            props.history.push("/404")
+        }
       });
-  }, [props.employeeId]);
+  }, [props]);
   const thisEmployeesCharges = <AnimalList sourceCall = "employeeDetail" employeeId ={employee.id} {...props} />
 
   const handleDelete = () => {
@@ -31,6 +34,8 @@ const EmployeeDetail = props => {
 
   return (
     <div className="card">
+        {(employee.id !== undefined) &&
+    <div>
       <div className="card-content">
         { (employee.image !== "") ?  
         <picture>
@@ -48,6 +53,8 @@ const EmployeeDetail = props => {
       <button type="button" disabled={isLoading} onClick={handleDelete}>
           Fire Employee
       </button>
+      </div>
+        }
     </div>
   );
 }

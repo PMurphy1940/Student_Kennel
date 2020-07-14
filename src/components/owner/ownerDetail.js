@@ -20,8 +20,11 @@ const OwnerDetail = props => {
           id: owner.id
         });
         setIsLoading(false);
+        if (owner.id === undefined  ) {
+            props.history.push("/404")
+        }
       });
-  }, [props.ownerId]);
+  }, [props]);
 
   const thisOwnersPets = <AnimalList sourceCall = "ownerDetail" ownerId ={owner.id} {...props} />
 
@@ -35,6 +38,7 @@ const OwnerDetail = props => {
    
   return (
     <div className="card">
+        {(owner.id !== undefined) &&
       <div className="card-content">
       { (owner.image !== "") && 
         <picture>
@@ -50,6 +54,7 @@ const OwnerDetail = props => {
           Checkout owner and discharge pets
         </button>
       </div>
+        }
     </div>
   );
 }

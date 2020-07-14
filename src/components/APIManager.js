@@ -24,13 +24,13 @@ export default {
           body: JSON.stringify(newContent)
       }).then(data => data.json())
   },
-  update(editedAnimal) {
-    return fetch(`${remoteURL}/animals/${editedAnimal.id}`, {
+  update(editedCard, route) {
+    return fetch(`${remoteURL}/${route}/${editedCard.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(editedAnimal)
+      body: JSON.stringify(editedCard)
     }).then(data => data.json());
   },
   uploadFile(file) {

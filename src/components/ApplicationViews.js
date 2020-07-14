@@ -14,6 +14,8 @@ import OwnerDetail from "./owner/ownerDetail";
 import AnimalEditForm from "./animal/AnimalEditForm";
 import OwnerForm from "./owner/newOwnerForm"
 import EmployeeForm from "./employee/newEmployeeForm"
+import EmployeeEditForm from "./employee/EmployeeEditForm"
+import NotFound from "./NotFound"
 import Login from "./auth/Login";
 
 const ApplicationViews = () => {
@@ -22,7 +24,13 @@ const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
   
 
 return (
-    <React.Fragment> 
+    <React.Fragment>
+    <Route 
+        path="/404" 
+        render={props => {
+            return <NotFound {...props} />
+        }} 
+        />
     <Route path="/login" component={Login} />
       <Route
         exact
@@ -98,10 +106,21 @@ return (
             return <Redirect to="/login" />
             }
         }} />
-      <Route path="/employees/:employeeId(\d+)" render={(props) => {
+      <Route exact path="/employees/:employeeId(\d+)" render={(props) => {
         if (isAuthenticated()) {
         // Pass the locationId to the locationDetailComponent
          return <EmployeeDetail employeeId={parseInt(props.match.params.employeeId)}
+             {...props}
+         />
+        }
+          else {
+            return <Redirect to="/login" />
+            }
+        }} />
+      <Route exact path="/employees/:employeeId(\d+)/edit" render={(props) => {
+        if (isAuthenticated()) {
+        // Pass the locationId to the locationDetailComponent
+         return <EmployeeEditForm employeeId={parseInt(props.match.params.employeeId)}
              {...props}
          />
         }
