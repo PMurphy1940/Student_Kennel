@@ -4,7 +4,7 @@ import './LocationDetail.css'
 import { firstLetterCase } from "../../modules/helpers"
 
 const LocationDetail = props => {
-  const [location, setLocation] = useState({ name: "", address: "", image: "", locationId: "" });
+  const [location, setLocation] = useState({ name: "", address: "", image: "", id: "" });
     const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     //get(id) from AnimalManager and hang on to the data; put it into state
@@ -14,10 +14,10 @@ const LocationDetail = props => {
           name: location.name,
           address: location.address,
           image: location.image,
-          locationId: location.locationId
+          id: location.id
         });
         setIsLoading(false);
-        if (location.locationId === undefined  ) {
+        if (location.id === undefined  ) {
             props.history.push("/404")
         }
       });

@@ -37,15 +37,15 @@ const AnimalEditForm = props => {
   }
 
   useEffect(() => {
-    APIManager.get(props.match.params.animalId, "animals", "")
+    APIManager.get(props.match.params.animalId, "animals")
       .then(animal => {
         setAnimal(animal);
         setIsLoading(false);
       });
   }, [props.match.params.animalId]);
 
-  const employeeSelect = (<EmployeeList sourceCall = {"Form"} />)
-  const ownerSelect = (<OwnerList sourceCall = {"Form"} />)
+  const employeeSelect = (<EmployeeList sourceCall={"Form"} />)
+  const ownerSelect = (<OwnerList sourceCall={"Form"} />)
 
   return (
     <>

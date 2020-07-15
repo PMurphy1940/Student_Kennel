@@ -12,22 +12,16 @@ const AnimalDetail = props => {
     //get(id) from AnimalManager and hang on to the data; put it into state
     APIManager.get(props.animalId, "animals", "?_expand=employee&_expand=owner")
       .then(animal => {
+
         setAnimal({
-          id: animal.id,
-          name: animal.name,
-          breed: animal.breed,
-          image: animal.image,
-          employeeId: animal.employeeId,
-          employee: animal.employee,
-          ownerId: animal.ownerId,
-          owner: animal.owner
+            ...animal
         });
         setIsLoading(false);
         if (animal.id === undefined  ) {
             props.history.push("/404")
         }
       });
-  }, [props.animalId]);
+  }, [props.animalId, props.history]);
 
   const handleDelete = () => {
     //invoke the delete function in AnimalManger and re-direct to the animal list.
@@ -61,15 +55,18 @@ const AnimalDetail = props => {
             <div className="owner__Container" >
                 <Link to={`/owners/${animal.ownerId}`}>
                     <p>Owner: {animal.owner.firstName} {animal.owner.lastName}</p>
-                    <p>Contact: {animal.owner.phone}</p>
+                    {(props.sourceCall !== "spotlight") &&
+                    <p>Contact: {animal.owner.phone}</p>}
                     <img src={require(`../owner/${animal.owner.image}`)} alt={firstLetterCase(animal.owner.firstName) } className="caretakerPic"/>
                 </Link>
             </div>
             }
         </div>
+        { (props.sourceCall !== "spotlight") &&
         <button type="button" disabled={isLoading} onClick={handleDelete}>
           Discharge
         </button>
+        }
       </div>
     }
     </div>

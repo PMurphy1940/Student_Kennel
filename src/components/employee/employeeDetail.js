@@ -5,17 +5,19 @@ import { firstLetterCase } from "../../modules/helpers"
 import AnimalList from "../animal/AnimalList"
 
 const EmployeeDetail = props => {
-  const [employee, setLocation] = useState({ firstName: "", breed: "", image: "", id: "" });
+  const [employee, setLocation] = useState({ firstName: "", lastName: "", image: "", id: "" });
     const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     //get(id) from AnimalManager and hang on to the data; put it into state
-    APIManager.get(props.employeeId, "employees", "")
+    APIManager.get(props.employeeId, "employees", "?_embed=animals")
       .then(employee => {
         setLocation({
           firstName: employee.firstName,
-          breed: employee.address,
+          lastName: employee.lastName,
           image: employee.image,
-          id: employee.id
+          id: employee.id,
+          animals: employee.animals
+
          
         });
         setIsLoading(false);
@@ -43,7 +45,7 @@ const EmployeeDetail = props => {
         </picture> : null
         }
         <h3>
-            <span className="card-petname"> {firstLetterCase(employee.firstName)}</span>
+            <span className="card-petname">{firstLetterCase(employee.firstName)} {firstLetterCase(employee.lastName)}</span>
         </h3>
           <p>{employee.address}</p>
       </div>

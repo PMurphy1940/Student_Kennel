@@ -1,7 +1,7 @@
 const remoteURL = "http://localhost:5002"
 
 export default {
-  get(id, route, extras) {
+  get(id, route, extras="") {
     return fetch(`${remoteURL}/${route}/${id}${extras}`).then(result => result.json())
   },
   getOwnerPets(route, extras) {
@@ -9,6 +9,15 @@ export default {
   },
   getAll(route) {
     return fetch(`${remoteURL}/${route}`).then(result => result.json())
+  },
+  getRandomId(route) {
+    return fetch(`${remoteURL}/${route}`)
+      .then(result => result.json())
+      .then(specials => {
+        const randomIndex = Math.floor(Math.random() * specials.length);
+        const randomSpecial = specials[randomIndex];
+        return randomSpecial.id;
+    });
   },
   delete(id, route) {
     return fetch(`${remoteURL}/${route}/${id}`, {
