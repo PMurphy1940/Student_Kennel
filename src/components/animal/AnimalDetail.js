@@ -42,6 +42,7 @@ const AnimalDetail = props => {
         }
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(animal.name)}</span></h3>
         <p>Breed: {animal.breed}</p>
+        {props.hasUser &&
         <div className="petTies">
             { (animal.employeeId !== "" && animal.employee.image !== "") &&
             <div className="caretaker__Container" >
@@ -62,6 +63,7 @@ const AnimalDetail = props => {
             </div>
             }
         </div>
+        }
         { (props.sourceCall !== "spotlight") &&
         <button type="button" disabled={isLoading} onClick={handleDelete}>
           Discharge

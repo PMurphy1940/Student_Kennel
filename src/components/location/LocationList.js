@@ -31,7 +31,7 @@ const LocationList = (props) => {
   // Finally we use map() to "loop over" the locations array to show a list of location cards
   return (
     <div className="container-cards">
-      {locations.map(location => <LocationCard key={location.id} store={location} deleteLocation={deleteLocation} />)}
+      {locations.map(location => <LocationCard hasUser={props.hasUser} key={location.id} store={location} deleteLocation={deleteLocation} />)}
     </div>
     );
   }

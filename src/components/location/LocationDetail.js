@@ -44,9 +44,10 @@ const LocationDetail = props => {
         </h3>
           <p>{location.address}</p>
       </div>
+      {props.hasUser &&
       <button type="button" disabled={isLoading} onClick={handleDelete}>
           Shutter Location
-      </button>
+      </button>}
       </div>
         }
     </div>

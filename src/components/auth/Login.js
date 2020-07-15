@@ -9,7 +9,7 @@ const Login = props => {
     stateToChange[evt.target.id] = evt.target.value;
     setCredentials(stateToChange);
   };
-
+  console.log(props)
   const handleLogin = (e) => {
     e.preventDefault();
     /*
@@ -21,6 +21,7 @@ const Login = props => {
       "credentials",
       JSON.stringify(credentials)
     );
+    props.setUser(credentials)
     props.history.push("/");
   }
 
