@@ -71,7 +71,9 @@ return (
                 placeholder="LocationId"
                 value={employee.location}>              
                 {locationSelect}
+                   
             </select>
+            <label htmlFor="location">Location</label> 
             { (employee.image !== "") ?  
                 <picture>
                     <img src={require(`./${employee.image}`)} alt={employee.firstName} />

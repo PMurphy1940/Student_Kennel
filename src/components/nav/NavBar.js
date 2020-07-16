@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import "./NavBar.css";
 
 const NavBar = props => {
@@ -7,7 +7,7 @@ const NavBar = props => {
         props.clearUser();
         props.history.push("/")
     }
-    console.log("navbar props",props)
+
   return (
     <header>
       <h1 className="site-title">
@@ -18,24 +18,24 @@ const NavBar = props => {
       <nav>
         <ul className="container">
           <li>
-            <Link className="nav-link" to="/"> Home </Link>
+            <NavLink className="nav-link" activeStyle={{color: "mintcream" }} exact to="/"> Home </NavLink>
           </li>
           {props.hasUser
             ? <li>
-                <Link className="nav-link" to="/animals"> Animals </Link>
+                <NavLink className="nav-link" activeStyle={{color: "mintcream" }} to="/animals"> Animals </NavLink>
               </li>
             : null}
           <li>
-            <Link className="nav-link" to="/locations"> Locations </Link>
+            <NavLink className="nav-link" activeStyle={{color: "mintcream" }} to="/locations"> Locations </NavLink>
           </li>
           {props.hasUser
             ? <li>
-                <Link className="nav-link" to="/employees"> Employees </Link>
+                <NavLink className="nav-link" activeStyle={{color: "mintcream" }} to="/employees"> Employees </NavLink>
               </li>
             : null}
           {props.hasUser
             ? <li>
-                <Link className="nav-link" to="/owners"> Owners </Link>
+                <NavLink className="nav-link" activeStyle={{color: "mintcream" }} to="/owners"> Owners </NavLink>
               </li>
             : null}
           {props.hasUser
@@ -43,7 +43,7 @@ const NavBar = props => {
                 <span className="nav-link" onClick={handleLogout}> Logout </span>
             </li>
             : <li>
-                <Link className="nav-link" to="/login"> Login </Link>
+                <NavLink className="nav-link" to="/login"> Login </NavLink>
               </li>}
         </ul>
       </nav>

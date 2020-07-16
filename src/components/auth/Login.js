@@ -1,15 +1,16 @@
 import React, { useState } from "react"
 
 const Login = props => {
-  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const [credentials, setCredentials] = useState({ email: "", password: "", rememberMe: "off" });
 
   // Update state whenever an input field is edited
   const handleFieldChange = (evt) => {
     const stateToChange = { ...credentials };
     stateToChange[evt.target.id] = evt.target.value;
     setCredentials(stateToChange);
+    console.log(evt.target.value)
   };
-  console.log(props)
+  
   const handleLogin = (e) => {
     e.preventDefault();
     /*
@@ -17,6 +18,7 @@ const Login = props => {
         the customer enters into session storage.
         ...Let's just trust the user... That's a good idea, right????
     */
+
     sessionStorage.setItem(
       "credentials",
       JSON.stringify(credentials)
@@ -41,9 +43,12 @@ const Login = props => {
             placeholder="Password"
             required="" />
           <label htmlFor="inputPassword">Password</label>
+          <input type="checkbox" id="rememberMe" onChange={handleFieldChange} />
+          <label htmlFor="rememberMe">Remember Me</label>         
         </div>
         <button type="submit">Sign in</button>
       </fieldset>
+
     </form>
   );
 };

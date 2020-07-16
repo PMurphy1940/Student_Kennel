@@ -23,6 +23,11 @@ const EmployeeList = (props) => {
     getEmployees();
   }, []);
 
+  let locationEmployees = employees.filter(employee => {
+ 
+    return (employee.locationId === props.locationId) ? true:false
+})
+
   const deleteEmployee = id => {
     APIManager.delete(id, "employees")
       .then(() => APIManager.getAll("employees").then(setEmployees));
@@ -57,6 +62,17 @@ const EmployeeList = (props) => {
     else if (props.sourceCall === "Caretaker") {
         return employees
     }
+    else if (props.sourceCall === "locationDetail") {
+        return(
+            <div className="container-cards">
+                {locationEmployees.map(here =>
+                    <EmployeeCard
+                    key={here.id}
+                    employee={here}
+                    deleteEmployee={deleteEmployee}
+                    {...props} />)}        
+            </div>   
+    )}
 
 
 }
